@@ -1,0 +1,131 @@
+.sign-in {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25rem;
+    background: #222;
+    z-index: 1000;
+    padding: 2.5em;
+    border-radius: 0.25em;
+    box-shadow: 0 0.938rem 2.188rem rgba(0, 0, 0, 0.9);
+    transform: translate(-50%, -50%);
+}
+
+.sign-in .content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.sign-in .content h2 {
+    font-size: 1.8em;
+    color: #ff004c;
+    text-transform: uppercase;
+}
+
+.sign-in .content .inputBox {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sign-in .content .inputBox input {
+    padding: 1.125rem 2rem;
+    width: 100% ;
+    font-size: 1em;
+    background: #333;
+    border: none;
+    outline: none;
+    border-radius: 0.25em;
+    color: #fff;
+    font-weight: 700;
+
+}
+
+.sign-in .content .inputBox input[type="submit"] {
+    padding: 0.938rem;
+    background: #ff004c;
+    color: #000;
+    font-size: 1.1em;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    margin-top: 0.938em;
+    font-weight: 700;
+}
+
+input[type="submit"]:active {
+    opacity: 0.6;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.6;
+}
+
+.sign-in .content .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+}
+
+.sign-in .content .links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sign-in .content .links a:hover {
+    color: #ff004c;
+}
+
+.sign-in .content .links i {
+    color: #ff004c;
+    font-weight: 600;
+}
+
+@media (max-width: 48rem) {
+    .sign-in {
+        padding: 0.938em;
+        margin: 0.625em;
+    }
+
+    .sign-in .content h2 {
+        font-size: 1.6em;
+    }
+
+    .sign-in .content .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sign-in .content .links a {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 30rem) {
+    .sign-in {
+        width: 100%;
+        padding: 0.625em;
+        margin: 0.625em;
+    }
+
+    .sign-in .content h2 {
+        font-size: 1.4em;
+    }
+
+    .sign-in .content .inputBox2 input,
+    .sign-in .content .inputBox2 input[type="submit"] {
+        padding: 0.625em;
+        font-size: 0.8em;
+    }
+}

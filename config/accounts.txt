@@ -1,0 +1,7 @@
+//hosting
+login: vognezahisnik
+pass: iWxgDPw9sQ
+
+//users
+login: admin@vognegasnik.click
+password: admin123
