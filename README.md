@@ -29,3 +29,7 @@
 файл vognegasnik.sql з теки database, яка знаходиться в корні проекту.
 Запустіть Open Server та перейдіть в браузері за посиланням http://(ім'я створеної теки)
 якщо ви вводили приклад, то посилання виглядає так: http://localhost 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
