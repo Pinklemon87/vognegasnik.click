@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="MyProject">
+    <description>Налаштування PHP_CodeSniffer для ПП "Вогнезахисник"</description>
+    <rule ref="PSR12"/>
+    <file>.</file>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+</ruleset>
