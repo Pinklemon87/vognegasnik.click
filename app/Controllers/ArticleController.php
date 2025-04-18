@@ -18,11 +18,22 @@ class ArticleController extends Controller
         $this->articleService = new Article($this->conn);
     }
 
+    /**
+     * Get article by article id controller
+     *
+     * @param $article_id
+     * @return array
+     */
     public function getArticle($article_id): array
     {
           return $this->articleService->getArticle($article_id);
     }
 
+    /**
+     * Get articles controller
+     *
+     * @return array
+     */
     public function getArticles(): array
     {
         $limit = 10;
@@ -34,11 +45,22 @@ class ArticleController extends Controller
         ];
     }
 
+    /**
+     * Search article controller
+     *
+     * @param $article_name
+     * @return array
+     */
     public function getSearchArticle($article_name): array
     {
         return $this->articleService->getSearchArticle($article_name);
     }
 
+    /**
+     * Article management check
+     *
+     * @return void
+     */
     public function isActionArticle(): void
     {
         if (!$this->auth->isAdmin()) {
@@ -48,6 +70,12 @@ class ArticleController extends Controller
         }
     }
 
+    /**
+     * Generate Article from articles array
+     *
+     * @param $articles
+     * @return string
+     */
     function generateArticle($articles): string
     {
         $html = '';
@@ -76,6 +104,11 @@ class ArticleController extends Controller
         return $html;
     }
 
+    /**
+     * Add article controller
+     *
+     * @return void
+     */
     #[NoReturn] public function addArticle(): void
     {
         $this->isActionArticle();
@@ -101,6 +134,11 @@ class ArticleController extends Controller
         exit;
     }
 
+    /**
+     * Delete article controller
+     *
+     * @return void
+     */
     public function deleteArticle(): void
     {
         $this->isActionArticle();

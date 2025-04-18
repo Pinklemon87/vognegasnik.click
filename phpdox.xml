@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdox xmlns="https://phpdox.de/config">
+    <project name="vognegasnik" source="./app" workdir="./docs/phpdox" />
+
+    <collector publiconly="true">
+        <include path="." />
+        <exclude path="vendor" />
+    </collector>
+
+    <generator output="html" enabled="true">
+        <build engine="html" output="./docs/phpdox/output"/>
+    </generator>
+</phpdox>

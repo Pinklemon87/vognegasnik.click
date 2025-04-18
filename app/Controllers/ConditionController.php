@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 class ConditionController
 {
+    /**
+     * Title router
+     *
+     * @return string
+     */
     public function titleRoute(): string
     {
         $route = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -17,6 +22,10 @@ class ConditionController
             default => 'Протипожежне обладнання',
         };
     }
+
+    /**
+     * @return string
+     */
     public function equipmentTitle(): string
     {
         return match ($_GET['eq'] ?? '') {
@@ -28,6 +37,9 @@ class ConditionController
         };
     }
 
+    /**
+     * @return string
+     */
     public function articleTitle(): string
     {
         return match ($_GET['state'] ?? '') {
@@ -36,6 +48,9 @@ class ConditionController
         };
     }
 
+    /**
+     * @return string
+     */
     public function loginTitle(): string
     {
         return match ($_GET['page'] ?? '') {
@@ -45,6 +60,9 @@ class ConditionController
         };
     }
 
+    /**
+     * @return string
+     */
     public function articleRoute(): string
     {
         return match ($_GET['state'] ?? '') {
@@ -53,6 +71,11 @@ class ConditionController
         };
     }
 
+    /**
+     * Equipment Router
+     *
+     * @return string[]
+     */
     public function equipmentRoute(): array
     {
         $categories = [
@@ -65,6 +88,11 @@ class ConditionController
         return $categories[$_GET['eq'] ?? ''] ?? ['Ми виготовляємо', ''];
     }
 
+    /**
+     * Login Router
+     *
+     * @return void
+     */
     public function loginRoute(): void
     {
         $pagePath = match ($_GET['page'] ?? '') {

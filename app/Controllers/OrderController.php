@@ -17,6 +17,11 @@ class OrderController extends Controller
         $this->orderService = new Order($this->conn);
     }
 
+    /**
+     * Get order controller
+     *
+     * @return array
+     */
     public function getOrders(): array
     {
         if ($this->auth->isAuthenticated()) {
@@ -28,6 +33,11 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * Get full order controller
+     *
+     * @return array
+     */
     public function getFullOrders(): array
     {
         if ($this->auth->isAdmin()) {
@@ -38,6 +48,11 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * Update status controller by admin
+     *
+     * @return void
+     */
     #[NoReturn] public function updateOrderStatus(): void
     {
         if (!$this->auth->isAdmin()) {
@@ -71,6 +86,11 @@ class OrderController extends Controller
         exit;
     }
 
+    /**
+     * Add order controller by admin
+     *
+     * @return void
+     */
     #[NoReturn] public function addOrder(): void
     {
         if (

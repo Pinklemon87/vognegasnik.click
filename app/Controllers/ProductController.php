@@ -19,26 +19,54 @@ class ProductController extends Controller
         $this->productService = new Product($this->conn);
     }
 
+    /**
+     * Get all product categories controller
+     *
+     * @return array
+     */
     public function getAllProductCategories(): array
     {
         return $this->productService->getAllCategories();
     }
 
+    /**
+     * Get product controller by id
+     *
+     * @param $category_id
+     * @return array
+     */
     public function getProducts($category_id): array
     {
         return $this->productService->getAllProduct($category_id);
     }
 
+    /**
+     * Search product controller by title
+     *
+     * @param $product_name
+     * @return array
+     */
     public function getSearchProducts($product_name): array
     {
         return $this->productService->getSearchProduct($product_name);
     }
 
+    /**
+     * Search product from id controller
+     *
+     * @param $product_id
+     * @return array
+     */
     public function getSearchProductFromID($product_id): array
     {
         return $this->productService->getSearchProductFromID($product_id);
     }
 
+    /**
+     * Access to add/delete product
+     *
+     * @return void
+     */
     public function isActionProduct(): void
     {
         if (!$this->auth->isAdmin()) {
@@ -48,6 +76,11 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * Add product controller
+     *
+     * @return void
+     */
     #[NoReturn] public function addProduct(): void
     {
         $this->isActionProduct();
@@ -77,6 +110,12 @@ class ProductController extends Controller
         exit;
     }
 
+    /**
+     * Upload image to add product
+     *
+     * @param array|null $file
+     * @return string
+     */
     private function uploadImage(?array $file): string
     {
         $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/assets/images/products/";
@@ -96,6 +135,11 @@ class ProductController extends Controller
         return move_uploaded_file($file['tmp_name'], $imgPath) ? $fileName : $defaultFile;
     }
 
+    /**
+     * Render product categories
+     *
+     * @return string
+     */
     public function generateProductCategories(): string
     {
         $html = '';
@@ -119,6 +163,12 @@ class ProductController extends Controller
         return $html;
     }
 
+    /**
+     * Render products card from array
+     *
+     * @param $category_id
+     * @return string
+     */
     public function generateProduct($category_id): string
     {
         $html = '';
@@ -147,6 +197,11 @@ class ProductController extends Controller
         return $html;
     }
 
+    /**
+     * Delete product controller
+     *
+     * @return void
+     */
     public function deleteProduct(): void
     {
         $this->isActionProduct();

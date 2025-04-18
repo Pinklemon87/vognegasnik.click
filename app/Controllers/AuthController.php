@@ -15,6 +15,11 @@ class AuthController extends Controller
         session_start();
     }
 
+    /**
+     * User login controller
+     *
+     * @return void
+     */
     public function login(): void
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -33,6 +38,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * User register controller
+     *
+     * @return void
+     */
     public function register(): void
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -53,12 +63,22 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * User logout controller
+     *
+     * @return void
+     */
     public function logout(): void
     {
         $this->auth->logout();
         header("Location: /");
     }
 
+    /**
+     * Redirect when user no authenticated
+     *
+     * @return void
+     */
     public function noAuth(): void
     {
         if (!$this->auth->isAuthenticated()) {
@@ -67,6 +87,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Redirect when user is authenticated
+     *
+     * @return void
+     */
     public function isAuth(): void
     {
         if ($this->auth->isAuthenticated()) {
@@ -75,6 +100,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Render login buttons
+     *
+     * @return string
+     */
     public function loginBtn(): string
     {
         if ($this->auth->isAuthenticated()) {
@@ -92,6 +122,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Render login buttons in mobile device
+     *
+     * @return string
+     */
     public function loginBtnMobile(): string
     {
         if ($this->auth->isAuthenticated()) {
@@ -102,6 +137,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Check user status
+     *
+     * @return string
+     */
     public function statusAccount(): string
     {
         if ($this->auth->isAdmin()) {
@@ -111,6 +151,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Return user status
+     *
+     * @return bool
+     */
     public function isAdminStatus(): bool
     {
         return $this->auth->isAdmin();

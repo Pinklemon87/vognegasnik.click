@@ -18,6 +18,11 @@ class CommentController extends Controller
         $this->commentService = new Comment($this->conn);
     }
 
+    /**
+     * Is add comment controller
+     *
+     * @return void
+     */
     public function isAddComment(): void
     {
         if (!$this->auth->isAuthenticated()) {
@@ -27,11 +32,21 @@ class CommentController extends Controller
         }
     }
 
+    /**
+     * Get comments. Return comment array
+     *
+     * @return array
+     */
     public function getComments(): array
     {
         return $this->commentService->getComments();
     }
 
+    /**
+     * Add Comment controller
+     *
+     * @return void
+     */
     public function addComment(): void
     {
         $this->isAddComment();
@@ -60,6 +75,11 @@ class CommentController extends Controller
         }
     }
 
+    /**
+     * Delete comment controller
+     *
+     * @return void
+     */
     public function deleteComment(): void
     {
         $this->isAddComment();
