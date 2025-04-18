@@ -9,11 +9,17 @@ class Product
 {
     private PDO $pdo;
 
+    /**
+     * @param PDO $pdo
+     */
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
+    /**
+     * @return array
+     */
     public function getAllCategories(): array
     {
         try {
@@ -25,6 +31,10 @@ class Product
         }
     }
 
+    /**
+     * @param $category_id
+     * @return array
+     */
     public function getAllProduct($category_id): array
     {
         try {
@@ -38,6 +48,10 @@ class Product
         }
     }
 
+    /**
+     * @param $product_name
+     * @return array
+     */
     public function getSearchProduct($product_name): array
     {
         try {
@@ -51,6 +65,10 @@ class Product
         }
     }
 
+    /**
+     * @param $product_id
+     * @return array
+     */
     public function getSearchProductFromID($product_id): array
     {
         try {
@@ -63,6 +81,14 @@ class Product
         }
     }
 
+    /**
+     * @param $name
+     * @param $image
+     * @param $description
+     * @param $price
+     * @param $category_id
+     * @return bool
+     */
     public function insertProduct($name, $image, $description, $price, $category_id): bool
     {
         try {

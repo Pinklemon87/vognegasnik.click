@@ -9,11 +9,19 @@ class Article
 {
     private PDO $pdo;
 
+    /**
+     * @param PDO $pdo
+     */
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
+    /**
+     * @param $limit
+     * @param $offset
+     * @return array
+     */
     public function getAllArticles($limit, $offset): array
     {
         try {
@@ -35,6 +43,11 @@ class Article
         }
     }
 
+    /**
+     * @param $limit
+     * @param $offset
+     * @return bool
+     */
     public function hasMoreArticles($limit, $offset): bool
     {
         try {
@@ -47,6 +60,10 @@ class Article
         }
     }
 
+    /**
+     * @param $article_name
+     * @return array
+     */
     public function getSearchArticle($article_name): array
     {
         try {
@@ -62,6 +79,10 @@ class Article
         }
     }
 
+    /**
+     * @param $article_id
+     * @return array
+     */
     public function getArticle($article_id): array
     {
         try {
@@ -74,6 +95,12 @@ class Article
         }
     }
 
+    /**
+     * @param $title
+     * @param $text
+     * @param $category_id
+     * @return bool
+     */
     public function insertArticle($title, $text, $category_id): bool
     {
         try {
@@ -91,6 +118,10 @@ class Article
         }
     }
 
+    /**
+     * @param $articleId
+     * @return bool
+     */
     public function deleteArticle($articleId): bool
     {
         try {

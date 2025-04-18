@@ -9,11 +9,19 @@ class Comment
 {
     private PDO $pdo;
 
+    /**
+     * @param PDO $pdo
+     */
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
+    /**
+     * @param int $userid
+     * @param string $text
+     * @return bool
+     */
     public function addComment(int $userid, string $text): bool
     {
         try {
@@ -28,6 +36,9 @@ class Comment
         }
     }
 
+    /**
+     * @return array
+     */
     public function getComments(): array
     {
         $stmt = $this->pdo->query("SELECT c.id, c.text, c.date, u.name FROM vognegasnik.comments c
@@ -36,6 +47,10 @@ class Comment
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @param $commentId
+     * @return bool
+     */
     public function deleteComment($commentId): bool
     {
         try {

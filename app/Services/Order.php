@@ -9,11 +9,24 @@ class Order
 {
     private PDO $pdo;
 
+    /**
+     * @param PDO $pdo
+     */
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
+    /**
+     * @param $user_id
+     * @param $product_id
+     * @param $name
+     * @param $phone
+     * @param $city
+     * @param $post_office
+     * @param $post_id
+     * @return bool
+     */
     public function insertOrder($user_id, $product_id, $name, $phone, $city, $post_office, $post_id): bool
     {
         try {
@@ -37,6 +50,10 @@ class Order
         }
     }
 
+    /**
+     * @param $user_id
+     * @return array
+     */
     public function getOrders($user_id): array
     {
         try {
@@ -53,6 +70,9 @@ class Order
         }
     }
 
+    /**
+     * @return array
+     */
     public function getFullOrders(): array
     {
         try {
@@ -69,6 +89,11 @@ class Order
         }
     }
 
+    /**
+     * @param $order_id
+     * @param $status
+     * @return bool
+     */
     public function updateOrderStatus($order_id, $status): bool
     {
         try {

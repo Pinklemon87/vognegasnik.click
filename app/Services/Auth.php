@@ -9,12 +9,21 @@ class Auth
 {
     private PDO $pdo;
 
+    /**
+     * @param $pdo
+     */
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
         session_start();
     }
 
+    /**
+     * @param $name
+     * @param $email
+     * @param $password
+     * @return string
+     */
     public function register($name, $email, $password): string
     {
         if ($this->userExists($email)) {
@@ -37,6 +46,11 @@ class Auth
         }
     }
 
+    /**
+     * @param $email
+     * @param $password
+     * @return string
+     */
     public function login($email, $password): string
     {
         try {
@@ -58,6 +72,9 @@ class Auth
         }
     }
 
+    /**
+     * @return void
+     */
     public function logout(): void
     {
         session_start();
@@ -65,16 +82,26 @@ class Auth
         session_destroy();
     }
 
+    /**
+     * @return bool
+     */
     public function isAuthenticated(): bool
     {
         return isset($_SESSION["logged"]) && $_SESSION["logged"] == true;
     }
 
+    /**
+     * @return bool
+     */
     public function isAdmin(): bool
     {
         return isset($_SESSION['status']) && $_SESSION['status'] == 1;
     }
 
+    /**
+     * @param $email
+     * @return bool
+     */
     private function userExists($email): bool
     {
         $stmt = $this->pdo->prepare("SELECT id FROM vognegasnik.users WHERE email = :email");

@@ -31,11 +31,17 @@ class Database
         }
     }
 
+    /**
+     * @return Database
+     */
     public static function getInstance(): Database
     {
         return self::$instance ?? self::$instance = new self();
     }
 
+    /**
+     * @return PDO
+     */
     public function getConnection(): PDO
     {
         return $this->pdo;
