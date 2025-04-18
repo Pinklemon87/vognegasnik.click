@@ -39,7 +39,7 @@ class Order
 
     public function getOrders($user_id): array
     {
-        try{
+        try {
             $stmt = $this->pdo->prepare("SELECT p.name as product_name, p.price as product_price, 
             o.id as order_id, o.name as order_user,o.city as order_city, o.date as order_date,
             o.post_office as order_post, o.post_id as order_post_id, o.status as order_status
@@ -47,7 +47,7 @@ class Order
             JOIN vognegasnik.products p ON o.product_id = p.id WHERE user_id = :user_id");
             $stmt->execute([':user_id' => $user_id]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }catch (PDOException $e) {
+        } catch (PDOException $e) {
             $_SESSION['error'] = "Помилка отримання замовлень: " . $e->getMessage();
             return [];
         }
@@ -55,7 +55,7 @@ class Order
 
     public function getFullOrders(): array
     {
-        try{
+        try {
             $stmt = $this->pdo->prepare("SELECT p.name as product_name, p.price as product_price, 
             o.id as order_id, o.name as order_user,o.city as order_city, o.date as order_date, o.phone as order_phone,
             o.post_office as order_post, o.post_id as order_post_id, o.status as order_status
@@ -63,7 +63,7 @@ class Order
             JOIN vognegasnik.products p ON o.product_id = p.id");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }catch (PDOException $e) {
+        } catch (PDOException $e) {
             $_SESSION['error'] = "Помилка отримання замовлень: " . $e->getMessage();
             return [];
         }
@@ -83,5 +83,4 @@ class Order
             return false;
         }
     }
-
 }

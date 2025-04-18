@@ -94,19 +94,19 @@ class AuthController extends Controller
 
     public function loginBtnMobile(): string
     {
-        if ($this->auth->isAuthenticated()){
+        if ($this->auth->isAuthenticated()) {
             return "<a href='/profile'  ><i class='fas fa-user'></i> Кабінет</a>
                 <a href='/logout'><i class='fas fa-sign-out'></i> Вихід</a>";
-        }else{
+        } else {
             return "<a href='/login'><i class='fas fa-user' aria-label='true'></i> Вхід</a>";
         }
     }
 
-    public function statusAccount():string
+    public function statusAccount(): string
     {
-        if($this->auth->isAdmin()){
+        if ($this->auth->isAdmin()) {
             return 'Admin';
-        }else{
+        } else {
             return 'User';
         }
     }
@@ -115,5 +115,4 @@ class AuthController extends Controller
     {
         return $this->auth->isAdmin();
     }
-
 }

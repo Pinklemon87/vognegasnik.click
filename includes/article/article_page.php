@@ -6,12 +6,12 @@ use App\Controllers\ArticleController;
 $articleController = new ArticleController();
 $article = $articleController->getArticle($article_id);
 
-if(empty($article)):
+if (empty($article)) :
     echo "<h3>Стаття відсутня!</h3>";
-else:
-    foreach ($article as $art):
+else :
+    foreach ($article as $art) :
         $formattedDate = date("d.m.Y H:i", strtotime($art['date']));
-    ?>
+        ?>
 
 <main class="container">
     <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">

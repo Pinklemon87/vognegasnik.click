@@ -1,5 +1,7 @@
 <?php
+
 use App\Controllers\CommentController;
+
 $commentController = new CommentController();
 global $authController;
 ?>
@@ -12,7 +14,8 @@ global $authController;
 </section>
 <section class="feedback-list" id="feedback">
     <div class="container d-flex flex-column">
-        <?php foreach ($commentController->getComments() as $comment):?>
+        <?php foreach ($commentController->getComments() as $comment) :
+            ?>
             <article class="feedback shadow-lg">
                 <h5>
                     <?= htmlspecialchars($comment['text']) ?>
@@ -23,16 +26,19 @@ global $authController;
                 <span class="date fs-6">
                     <?= htmlspecialchars(date("d.m.Y H:i", strtotime($comment['date']))) ?>
                 </span>
-                <?php if ($authController->isAdminStatus()): ?>
+                <?php if ($authController->isAdminStatus()) :
+                    ?>
                     <form method="post" action="/includes/comments/delete_comment.php" class="m-0 p-0">
                         <input type="hidden" name="comment_id" value="<?= htmlspecialchars($comment['id']) ?>">
                         <button type="submit" class="btn btn-danger btn-secondary" name="delete_comment">
                             <i class="fas fa-trash"></i>
                         </button>
                     </form>
-                <?php endif; ?>
+                    <?php
+                endif; ?>
             </article>
-        <?php endforeach; ?>
+            <?php
+        endforeach; ?>
 
     </div>
 </section>

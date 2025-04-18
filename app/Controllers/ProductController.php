@@ -51,9 +51,11 @@ class ProductController extends Controller
     #[NoReturn] public function addProduct(): void
     {
         $this->isActionProduct();
-        if (empty($_POST["productName"]) || empty($_POST["productDescription"]) ||
+        if (
+            empty($_POST["productName"]) || empty($_POST["productDescription"]) ||
             empty($_POST["productPrice"]) || empty($_POST["productCategory"]) ||
-            !is_numeric($_POST["productPrice"]) || !is_numeric($_POST["productCategory"])) {
+            !is_numeric($_POST["productPrice"]) || !is_numeric($_POST["productCategory"])
+        ) {
             $_SESSION['error'] = "Будь ласка, заповніть усі поля коректно.";
             header("Location: /profile");
             exit;
@@ -106,7 +108,7 @@ class ProductController extends Controller
             " alt="" class="product-image">';
             $html .= '<h3>' . htmlspecialchars($product['title']) . '</h3>';
             $html .= '<ul class="product-list">';
-            foreach ($itemsList as $item):
+            foreach ($itemsList as $item) :
                 $html .= '<li><i class="fas fa-fire"></i> ' . htmlspecialchars($item) . '</li>';
             endforeach;
             $html .= '</ul>';
@@ -121,7 +123,6 @@ class ProductController extends Controller
     {
         $html = '';
         foreach ($category_id as $product) {
-
             $html .= '<div class="product-item shadow-lg">';
             $html .= '<img src="/assets/images/products/' . htmlspecialchars($product['image']) . '"alt="" class="product-image2">';
             $html .= '<h3>' . htmlspecialchars($product['name']) . '</h3>';
@@ -129,11 +130,11 @@ class ProductController extends Controller
             $html .= '<li>' . htmlspecialchars($product['description']) . '</li>';
             $html .= '</ul>';
             $html .= '<p><i class="fas fa-fire"></i> ' . htmlspecialchars($product['price']) . ' грн.</p>';
-            if (!str_starts_with($_SERVER['REQUEST_URI'], '/order/') && $_SERVER['REQUEST_URI'] !== '/profile'):
-                if ($this->auth->isAuthenticated()):
+            if (!str_starts_with($_SERVER['REQUEST_URI'], '/order/') && $_SERVER['REQUEST_URI'] !== '/profile') :
+                if ($this->auth->isAuthenticated()) :
                     $html .= '<a class="button m-2" href="/order/' . htmlspecialchars($product['id']) . '">
                     <i class="fas fa-cart-arrow-down"></i> Замовити</i></a>';
-                    if ($this->auth->isAdmin()):
+                    if ($this->auth->isAdmin()) :
                         $html .= '<form action="/includes/products/delete_product.php" method="POST">';
                         $html .= '<input type="hidden" name="product_id" value="' . htmlspecialchars($product['id']) . '">';
                         $html .= '<button class="button" type="submit"><i class="fas fa-trash"></i> Видалити</i></button>';
@@ -165,5 +166,4 @@ class ProductController extends Controller
         header("Location: /equipment");
         exit;
     }
-
 }

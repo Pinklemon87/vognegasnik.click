@@ -21,7 +21,7 @@
 
         $orderController = new OrderController();
 
-        foreach ($orderController->getFullOrders() as $order):
+        foreach ($orderController->getFullOrders() as $order) :
             $post = match ($order['order_post']) {
                 'nova_post' => $order['order_city'] . ", Нова пошта №" . $order['order_post_id'],
                 'ukr_post' => $order['order_city'] . ", Укрпошта " . $order['order_post_id'],
@@ -45,7 +45,7 @@
                 <td><?= htmlspecialchars($post) ?></td>
                 <td><?= htmlspecialchars(date('d.m.Y H:i', strtotime($order['order_date']))) ?></td>
                 <td><?= htmlspecialchars($status) ?></td>
-                <?php if($order['order_status'] !== '3' && $order['order_status'] !== '4'): ?>
+                <?php if ($order['order_status'] !== '3' && $order['order_status'] !== '4') : ?>
                 <td>
                     <form action="/includes/order/update_order_status.php" method="post"
                           style="display: flex; align-items: center; gap: 10px;">

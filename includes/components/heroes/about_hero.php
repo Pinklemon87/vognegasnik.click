@@ -1,9 +1,10 @@
 <?php
-  if($_SERVER['REQUEST_URI'] == '/about'){
-  $btn = '<a href="#about-us" class="button">Вся інформація <i class="fas fa-arrow-down"></i></a>';
-  }else{
-      $btn = '<a href="/about" class="button">Про Нас</a>';
-  }
+
+if ($_SERVER['REQUEST_URI'] == '/about') {
+    $btn = '<a href="#about-us" class="button">Вся інформація <i class="fas fa-arrow-down"></i></a>';
+} else {
+    $btn = '<a href="/about" class="button">Про Нас</a>';
+}
 ?>
 <section id="about" class="about">
     <div class="content text-shadow">

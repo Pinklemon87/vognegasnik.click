@@ -15,14 +15,16 @@
         <tbody>
 
         <?php
+
         use App\Controllers\OrderController;
+
         $orderController = new OrderController();
 
-        foreach ($orderController->getOrders() as $order):
+        foreach ($orderController->getOrders() as $order) :
             $post = match ($order['order_post']) {
-                'nova_post' =>  $order['order_city']. ", Нова пошта №" . $order['order_post_id'],
-                'ukr_post' =>  $order['order_city']. ", Укрпошта " . $order['order_post_id'],
-                default => $order['order_city']. ", №".$order['order_post_id']
+                'nova_post' =>  $order['order_city'] . ", Нова пошта №" . $order['order_post_id'],
+                'ukr_post' =>  $order['order_city'] . ", Укрпошта " . $order['order_post_id'],
+                default => $order['order_city'] . ", №" . $order['order_post_id']
             };
 
             $status = match ($order['order_status']) {

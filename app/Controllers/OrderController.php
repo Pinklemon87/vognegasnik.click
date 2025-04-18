@@ -19,10 +19,10 @@ class OrderController extends Controller
 
     public function getOrders(): array
     {
-        if($this->auth->isAuthenticated()){
-        $user_id = htmlspecialchars($_SESSION['user_id']);
-        return $this->orderService->getOrders($user_id);
-        }else{
+        if ($this->auth->isAuthenticated()) {
+            $user_id = htmlspecialchars($_SESSION['user_id']);
+            return $this->orderService->getOrders($user_id);
+        } else {
             $_SESSION['error'] = "Помилка авторизації, перезайдіть в аккаунт";
             return [];
         }
@@ -30,9 +30,9 @@ class OrderController extends Controller
 
     public function getFullOrders(): array
     {
-        if($this->auth->isAdmin()){
+        if ($this->auth->isAdmin()) {
             return $this->orderService->getFullOrders();
-        }else{
+        } else {
             $_SESSION['error'] = 'Ваш аккаунт не має статусу Admin!';
             return [];
         }
@@ -73,9 +73,11 @@ class OrderController extends Controller
 
     #[NoReturn] public function addOrder(): void
     {
-        if (empty($_POST["product_id"]) || empty($_POST["name"]) ||
+        if (
+            empty($_POST["product_id"]) || empty($_POST["name"]) ||
             !is_numeric($_POST["phone"]) || empty($_POST["city"]) ||
-            empty($_POST["post_office"]) || empty($_POST["post_id"])) {
+            empty($_POST["post_office"]) || empty($_POST["post_id"])
+        ) {
             $_SESSION['error'] = "Будь ласка, заповніть усі поля коректно.";
             header("Location: <script>window.history.back();</script>");
             exit;

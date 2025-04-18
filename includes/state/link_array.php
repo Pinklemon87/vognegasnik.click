@@ -1,4 +1,5 @@
 <?php
+
 $links = [
     [
         'name' => 'Статті',
@@ -16,7 +17,6 @@ $links = [
         'icon' => 'fa-info-circle',
     ],
 ];
-
 $product_redirect = [
     [
         'title' => 'Вогнегасники',
@@ -34,7 +34,6 @@ $product_redirect = [
         'link' => 'inventory',
     ],
 ];
-
 $contacts = [
   [
       'icon' => 'fa-phone',

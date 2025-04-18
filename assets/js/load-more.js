@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loadMoreBtn.addEventListener('click', function () {
             let page = this.getAttribute('data-page');
 
-            fetch(`?page=${page}`)
+            fetch(` ? page = ${page}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Ошибка сети или сервера");

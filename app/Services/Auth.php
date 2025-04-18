@@ -81,5 +81,4 @@ class Auth
         $stmt->execute(["email" => $email]);
         return $stmt->fetch() !== false;
     }
-
 }

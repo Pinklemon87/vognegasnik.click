@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     /* -------------------------- Mobile Menu ------------------------------ */
     const mobileDiv = document.querySelector('.mobile div');
@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 //open add product form
-function toggleAddProductForm() {
+function toggleAddProductForm()
+{
     let form = document.getElementById("addProduct");
     let addArticle = document.getElementById("addArticle");
     let handlerForm = document.getElementById("handlerForm");
@@ -46,7 +47,8 @@ function toggleAddProductForm() {
 /*-----------------------------------------------------------------------*/
 
 //open add article form
-function toggleAddArticleForm() {
+function toggleAddArticleForm()
+{
     let form = document.getElementById("addArticle");
     let addProduct = document.getElementById("addProduct");
     let handlerForm = document.getElementById("handlerForm");
@@ -57,7 +59,8 @@ function toggleAddArticleForm() {
 /*-----------------------------------------------------------------------*/
 
 //open update orders
-function toggleHandlerForm() {
+function toggleHandlerForm()
+{
     let form = document.getElementById("updateOrders");
     let addArticle = document.getElementById("addArticle");
     let addProduct = document.getElementById("addProduct");

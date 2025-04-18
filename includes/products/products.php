@@ -12,7 +12,7 @@ if (isset($_GET['id']) && $_GET['id'] != "" && $_GET['eq'] == 'order') {
     if ($output != '') {
         $require = "/../order/order_form.php";
     } else {
-       header('Location: /equipment');
+        header('Location: /equipment');
     }
 } else {
     if ($category_id == '') {
@@ -43,7 +43,9 @@ $output .= $getProd->generateProduct($getProd->getProducts($category_id));
         <h2><?= $h2 ?? 'Ми виготовляємо' ?></h2>
         <div class="product-list">
             <?= $output ?>
-            <?php if (!empty($require)) require_once __DIR__ . $require; ?>
+            <?php if (!empty($require)) {
+                require_once __DIR__ . $require;
+            } ?>
         </div>
     </section>
 </main>

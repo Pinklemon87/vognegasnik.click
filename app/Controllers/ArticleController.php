@@ -39,7 +39,7 @@ class ArticleController extends Controller
         return $this->articleService->getSearchArticle($article_name);
     }
 
-    public function isActionArticle():void
+    public function isActionArticle(): void
     {
         if (!$this->auth->isAdmin()) {
             $_SESSION['error'] = "У Вас немає прав на виконання дій з статтями!";
@@ -60,10 +60,10 @@ class ArticleController extends Controller
             $html .= htmlspecialchars($art['category']);
             $html .= '</p>';
 
-            if ($this->auth->isAdmin()):
+            if ($this->auth->isAdmin()) :
                 $html .= '
                         <form method="post" class="justify-content-end" action="/includes/article/delete_article.php">
-                            <input type="hidden" name="article_id" value="'. htmlspecialchars($art['article_id']).'">
+                            <input type="hidden" name="article_id" value="' . htmlspecialchars($art['article_id']) . '">
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                         </form>
                         ';
@@ -106,7 +106,7 @@ class ArticleController extends Controller
         $this->isActionArticle();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['article_id'])) {
-            $articleId = filter_input(INPUT_POST,'article_id', FILTER_SANITIZE_NUMBER_INT);
+            $articleId = filter_input(INPUT_POST, 'article_id', FILTER_SANITIZE_NUMBER_INT);
             try {
                 if ($this->articleService->deleteArticle($articleId)) {
                     $_SESSION['success'] = "Статтю успішно видалено!";
@@ -120,5 +120,4 @@ class ArticleController extends Controller
         header("Location: /article");
         exit;
     }
-
 }

@@ -18,7 +18,7 @@ class CommentController extends Controller
         $this->commentService = new Comment($this->conn);
     }
 
-    public function isAddComment():void
+    public function isAddComment(): void
     {
         if (!$this->auth->isAuthenticated()) {
             $_SESSION['error'] = "Потрібно увійти в аккаунт для виконання дій з коментарями!";
@@ -32,13 +32,13 @@ class CommentController extends Controller
         return $this->commentService->getComments();
     }
 
-    public function addComment():void
+    public function addComment(): void
     {
         $this->isAddComment();
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $userid = htmlspecialchars($_SESSION['user_id']) ?? null;
-            $comment = filter_input(INPUT_POST,'text', FILTER_SANITIZE_SPECIAL_CHARS);
+            $comment = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_SPECIAL_CHARS);
             $comment = trim($comment);
 
             if (empty($userid) || empty($comment)) {
@@ -79,5 +79,4 @@ class CommentController extends Controller
         header("Location: /about#feedbackForm");
         exit;
     }
-
 }

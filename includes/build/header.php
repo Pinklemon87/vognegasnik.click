@@ -7,7 +7,7 @@ global $links, $authController;
     <div class='container2 mx-5'>
         <div class='logo'><a href='/'>ПП «Вогнезахисник»</a></div>
         <nav class='nav'>
-            <?php foreach ($links as $link): ?>
+            <?php foreach ($links as $link) : ?>
                 <a href='<?=$link['link']?>'><i class="fas <?=$link['icon']?>"></i> <?=$link['name']?></a>
             <?php endforeach; ?>
         </nav>
