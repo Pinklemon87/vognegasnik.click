@@ -18,6 +18,7 @@ class Comment
     }
 
     /**
+     * Add comment to database
      * @param int $userid
      * @param string $text
      * @return bool
@@ -37,6 +38,8 @@ class Comment
     }
 
     /**
+     * Get comments
+     *
      * @return array
      */
     public function getComments(): array
@@ -48,6 +51,8 @@ class Comment
     }
 
     /**
+     * Delete comment from the database
+     *
      * @param $commentId
      * @return bool
      */

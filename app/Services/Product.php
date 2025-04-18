@@ -18,6 +18,8 @@ class Product
     }
 
     /**
+     * Get all product categories
+     *
      * @return array
      */
     public function getAllCategories(): array
@@ -32,6 +34,8 @@ class Product
     }
 
     /**
+     * Get products by category id
+     *
      * @param $category_id
      * @return array
      */
@@ -49,6 +53,8 @@ class Product
     }
 
     /**
+     * Search products by product name
+     *
      * @param $product_name
      * @return array
      */
@@ -66,6 +72,8 @@ class Product
     }
 
     /**
+     * Search product by id
+     *
      * @param $product_id
      * @return array
      */
@@ -82,6 +90,8 @@ class Product
     }
 
     /**
+     * Insert product to database
+     *
      * @param $name
      * @param $image
      * @param $description
@@ -107,6 +117,13 @@ class Product
             return false;
         }
     }
+
+    /**
+     * Delete product from the database
+     *
+     * @param $productId
+     * @return bool
+     */
     public function deleteProduct($productId): bool
     {
         try {

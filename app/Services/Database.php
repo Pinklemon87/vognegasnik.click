@@ -10,6 +10,9 @@ class Database
     private static ?Database $instance = null;
     private PDO $pdo;
 
+    /**
+     * Connect to database
+     */
     private function __construct()
     {
         $conn_data = require_once __DIR__ . '/../../config/database.php';
@@ -32,6 +35,8 @@ class Database
     }
 
     /**
+     * Create instance connect to database
+     *
      * @return Database
      */
     public static function getInstance(): Database
@@ -40,6 +45,8 @@ class Database
     }
 
     /**
+     * Check connect to database
+     *
      * @return PDO
      */
     public function getConnection(): PDO

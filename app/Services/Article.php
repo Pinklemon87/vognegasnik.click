@@ -18,6 +18,8 @@ class Article
     }
 
     /**
+     * Get All Articles with pagination
+     *
      * @param $limit
      * @param $offset
      * @return array
@@ -44,6 +46,8 @@ class Article
     }
 
     /**
+     * Pagination in articles
+     *
      * @param $limit
      * @param $offset
      * @return bool
@@ -61,6 +65,8 @@ class Article
     }
 
     /**
+     * Search for an article by title
+     *
      * @param $article_name
      * @return array
      */
@@ -80,6 +86,8 @@ class Article
     }
 
     /**
+     * Get article by id
+     *
      * @param $article_id
      * @return array
      */
@@ -96,6 +104,8 @@ class Article
     }
 
     /**
+     * Insert article to database
+     *
      * @param $title
      * @param $text
      * @param $category_id
@@ -119,6 +129,8 @@ class Article
     }
 
     /**
+     * Delete article from the database
+     *
      * @param $articleId
      * @return bool
      */

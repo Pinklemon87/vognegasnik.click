@@ -19,6 +19,8 @@ class Auth
     }
 
     /**
+     * Registration new user
+     *
      * @param $name
      * @param $email
      * @param $password
@@ -47,6 +49,8 @@ class Auth
     }
 
     /**
+     *  Login user
+     *
      * @param $email
      * @param $password
      * @return string
@@ -73,6 +77,8 @@ class Auth
     }
 
     /**
+     * Logout user
+     *
      * @return void
      */
     public function logout(): void
@@ -83,6 +89,8 @@ class Auth
     }
 
     /**
+     * Check is user authenticated
+     *
      * @return bool
      */
     public function isAuthenticated(): bool
@@ -91,6 +99,8 @@ class Auth
     }
 
     /**
+     * Check is user have admin status
+     *
      * @return bool
      */
     public function isAdmin(): bool
@@ -99,6 +109,8 @@ class Auth
     }
 
     /**
+     * Check email
+     *
      * @param $email
      * @return bool
      */

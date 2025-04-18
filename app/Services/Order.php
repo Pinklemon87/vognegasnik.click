@@ -18,6 +18,8 @@ class Order
     }
 
     /**
+     * Insert order to database
+     *
      * @param $user_id
      * @param $product_id
      * @param $name
@@ -51,6 +53,8 @@ class Order
     }
 
     /**
+     * Get orders from user id
+     *
      * @param $user_id
      * @return array
      */
@@ -71,6 +75,8 @@ class Order
     }
 
     /**
+     * Get full orders
+     *
      * @return array
      */
     public function getFullOrders(): array
@@ -90,6 +96,8 @@ class Order
     }
 
     /**
+     * Update order status by admin
+     *
      * @param $order_id
      * @param $status
      * @return bool
